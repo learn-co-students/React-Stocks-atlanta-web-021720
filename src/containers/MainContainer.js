@@ -6,6 +6,7 @@ import SearchBar from '../components/SearchBar'
 class MainContainer extends Component {
 
   render() {
+    console.log(this.props.stocks)
     return (
       <div>
         <SearchBar/>
@@ -13,7 +14,7 @@ class MainContainer extends Component {
           <div className="row">
             <div className="col-8">
 
-              <StockContainer/>
+              <StockContainer stocks = {this.props.stocks}/>
 
             </div>
             <div className="col-4">
