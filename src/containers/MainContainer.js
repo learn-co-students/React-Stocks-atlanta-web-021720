@@ -9,7 +9,7 @@ class MainContainer extends Component {
     stocks: [],
     portfolios: [],
     filter: 'All',
-    sorts: []
+    sort: ''
   }
 
   componentDidMount()
@@ -43,8 +43,10 @@ class MainContainer extends Component {
     console.log('sh',event.target.value)
     // if(!this.state.sorts.find((sort)=>{sort===event.target.value}))
     //   this.setState({sorts : [...this.state.sorts, event.target.value]})
-    if(this.state.sorts.indexOf(event.target.value)===-1)
-      this.setState({sorts : [...this.state.sorts, event.target.value]})
+    
+    // if(this.state.sorts.indexOf(event.target.value)===-1)
+    //   this.setState({sorts : [...this.state.sorts, event.target.value]})
+    this.setState({sort: event.target.value});
   }
 
   cbFilterHandler = (event) =>
@@ -65,16 +67,14 @@ class MainContainer extends Component {
     }
 
     
-    if(this.state.sorts.indexOf('Alphabetically')!==-1)
+    if(this.state.sort ==='Alphabetically')
     {
       // debugger
       retVal.sort((a,b)=>{return (a.name<b.name? -1:1)})
-    }
-
-    if(this.state.sorts.indexOf('Price')!==-1)
+    }else if(this.state.sort ==='Price')
     {
       // debugger
-      retVal.sort((a,b)=>{return (a.price>b.price? -1:1)}) 
+      retVal.sort((a,b)=>{return (a.price<b.price? -1:1)}) 
     }
 
     return retVal;
