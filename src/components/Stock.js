@@ -2,15 +2,15 @@ import React from 'react'
 
 const Stock = (props) => {
   
-  let {stock, buyStock} = props;
+  let {stock, tradeStock} = props;
   
- const handlerClick = (stock) =>
+ const onClickHandler = (stock) =>
   {
-    buyStock(stock);
+    tradeStock(stock);
   }
 
   return(
-  <div onClick = {()=>{handlerClick(stock)}}>
+  <div onClick = {()=>{onClickHandler(stock)}}>
 
     <div className="card" >
       <div className="card-body">

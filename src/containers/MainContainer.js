@@ -29,8 +29,10 @@ class MainContainer extends Component {
 
   sellStock = (stock) =>
   {
-    //console.log('buyStock', stock)
-    this.setState({portfolios: [...this.state.portfolios, stock]})
+    // console.log('sellStock stock', stock)
+    let index = this.state.portfolios.indexOf(stock)
+    // console.log('sellStock index', index)
+    this.setState({portfolios: this.state.portfolios.filter((item, idx) => idx !== index)})    
   }
  
   render() {
@@ -46,7 +48,7 @@ class MainContainer extends Component {
             </div>
             <div className="col-4">
 
-              <PortfolioContainer {...this.state} buyStock={this.sellStock}/>
+              <PortfolioContainer {...this.state} sellStock={this.sellStock}/>
 
             </div>
           </div>

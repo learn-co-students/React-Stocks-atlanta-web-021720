@@ -7,7 +7,7 @@ class StockContainer extends Component {
   {
     // return <Stock stocks={this.props.stocks}/>
     return ( this.props.stocks.map( stock => {
-        return ( <Stock key = {stock.id} stock={stock} buyStock={this.props.buyStock}/> )
+        return ( <Stock key = {stock.id} stock={stock} tradeStock={this.props.buyStock}/> )
         }
       )
     )
